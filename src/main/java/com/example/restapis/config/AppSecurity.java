@@ -55,7 +55,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
 
                 .authorizeRequests()
-                .antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/","/**","/dosignin").permitAll()
+                .antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/favicon.ico","/**","/dosignin").permitAll()
                 .anyRequest()
                 .authenticated().and().exceptionHandling().authenticationEntryPoint(loginAuthController)
                 .and()

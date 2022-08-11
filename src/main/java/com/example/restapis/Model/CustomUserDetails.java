@@ -1,9 +1,10 @@
 package com.example.restapis.Model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serial;
+
 import java.util.Collection;
 import java.util.Objects;
 
@@ -12,8 +13,9 @@ public final class CustomUserDetails implements UserDetails {
     private UserData userData;
 
     public CustomUserDetails(UserData userData) {
-        this.userData = userData;
+        this.userData=userData;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -45,19 +47,8 @@ public final class CustomUserDetails implements UserDetails {
         return true;
     }
 
-    public CustomUserDetails() {
-        super();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
 
     @Override
     public boolean isEnabled() {

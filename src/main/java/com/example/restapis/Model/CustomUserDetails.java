@@ -8,9 +8,8 @@ import java.util.Collection;
 import java.util.Objects;
 
 public final class CustomUserDetails implements UserDetails {
-    @Serial
-    private static final long serialVersionUID = 0L;
-    private final UserData userData;
+
+    private UserData userData;
 
     public CustomUserDetails(UserData userData) {
         this.userData = userData;
@@ -46,18 +45,26 @@ public final class CustomUserDetails implements UserDetails {
         return true;
     }
 
+    public CustomUserDetails() {
+        super();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
     @Override
     public boolean isEnabled() {
         return true;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (CustomUserDetails) obj;
-        return Objects.equals(this.userData, that.userData);
-    }
+
 
     @Override
     public int hashCode() {

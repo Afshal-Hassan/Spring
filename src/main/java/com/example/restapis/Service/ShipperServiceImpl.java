@@ -22,4 +22,15 @@ public class ShipperServiceImpl implements ShipperService{
       }
       return userRepository.findAllShipper(userType);
     }
+
+    @Override
+    public List<String> findShipper(String email,String userType) {
+        List<String>shipper=userRepository.findShipper(email,userType);
+        if(shipper.isEmpty()){
+            return Arrays.asList("Not Found");
+        }
+        else{
+            return userRepository.findShipper(email,userType);
+        }
+    }
 }

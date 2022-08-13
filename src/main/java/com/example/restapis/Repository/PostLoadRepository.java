@@ -19,8 +19,8 @@ public interface PostLoadRepository extends JpaRepository<PostLoad,Integer> {
     PostLoad findByProductWeightAndTypeOfVehicleAndPhoneNo(String productWeight,String vehicleType,String phoneNo);
     PostLoad findByPostLoadId(int id);
     @Modifying
-    @Query(value = "insert into post_load(phone_no,point_of_delivery,point_of_loading,product_weight,time1,vehicle_type,user_data,date1) values (:phoneNo,:dp,:lp,:pw,:time1,:tow,:sh,:date)",nativeQuery = true)
-    void savePostLoad(@Param("phoneNo")String phoneNo,@Param("dp")String deliveryPoint,@Param("lp")String loadingPoint,@Param("pw")String productWeight,@Param("time1")String time,@Param("tow")String typeOfVehicle,@Param("sh")String shipper,@Param("date")String date);
+    @Query(value = "insert into post_load(phone_no,point_of_delivery,point_of_loading,product_weight,time1,vehicle_type,user_data,date1,date_of_uploading) values (:phoneNo,:dp,:lp,:pw,:time1,:tow,:sh,:date, :dateOfUploading)",nativeQuery = true)
+    void savePostLoad(@Param("phoneNo")String phoneNo,@Param("dp")String deliveryPoint,@Param("lp")String loadingPoint,@Param("pw")String productWeight,@Param("time1")String time,@Param("tow")String typeOfVehicle,@Param("sh")String shipper,@Param("date")String date,@Param("dateOfUploading")String dateOfUploading);
 
     @Query("select pd.typeOfVehicle,pd.pointOfDelivery,pd.pointOfLoading,pd.phoneNo,pd.userData.email,pd.userData.phoneNo from PostLoad pd where pd.pointOfDelivery =:pod and pd.pointOfLoading =:pol")
     List<String> findContainer(@Param("pod")String pointOfDelivery,@Param("pol")String pointOfLoading);

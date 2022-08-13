@@ -23,13 +23,13 @@ public class PostLoadServiceImpl implements PostLoadService{
 
     @Transactional
     @Override
-    public String addLoad(String phoneNo, String deliveryPoint, String loadingPoint, String productWeight, String time, String typeOfVehicle, String shipper,String date) {
+    public String addLoad(String phoneNo, String deliveryPoint, String loadingPoint, String productWeight, String time, String typeOfVehicle, String shipper,String date,String dateOfUploading) {
         String carrierEmail= userRepository.findEmail(shipper);
         if(carrierEmail==null){
             return "Enter correct Email";
         }
         else{
-            postLoadRepository.savePostLoad(phoneNo,deliveryPoint,loadingPoint,productWeight,time,typeOfVehicle,shipper,date);
+            postLoadRepository.savePostLoad(phoneNo,deliveryPoint,loadingPoint,productWeight,time,typeOfVehicle,shipper,date,dateOfUploading);
             return "Saved Successfully";
         }
 

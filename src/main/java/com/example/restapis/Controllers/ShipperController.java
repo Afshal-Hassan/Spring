@@ -22,4 +22,9 @@ public class ShipperController {
     public List<String> getAllShippers(@PathVariable("userType")String userType){
          return shipperService.getAllShipper(userType);
     }
+    @CrossOrigin()
+    @GetMapping("/findshipper/{email}/{userType}")
+    public List<String> findShipper(@PathVariable("email")String email,@PathVariable("userType")String userType){
+       return shipperService.findShipper(email,userType);
+    }
 }

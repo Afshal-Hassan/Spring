@@ -18,5 +18,8 @@ public class ShareContainer {
     private String pointOfDelivery;
     private String pointOfLoading;
     private String productWeight;
+    private String phoneNo;
+
+    private String dateOfUploading;
 
 }

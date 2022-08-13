@@ -18,10 +18,10 @@ public class PostLoadController {
         PostLoadServiceImpl postLoadService;
 
         @CrossOrigin
-        @PostMapping("/postload/{pn}/{dp}/{lp}/{pw}/{time}/{tov}/{sh}/{date}")
-        public String addLoad(@PathVariable("pn")String phoneNo,@PathVariable("dp")String deliveryPoint,@PathVariable("lp")String loadingPoint,@PathVariable("pw")String productWeight,@PathVariable("time")String time,@PathVariable("tov")String typeOfVehicle,@PathVariable("sh")String shipper,@PathVariable("date")String date){
+        @PostMapping("/postload/{pn}/{dp}/{lp}/{pw}/{time}/{tov}/{sh}/{date}/{dou}")
+        public String addLoad(@PathVariable("pn")String phoneNo,@PathVariable("dp")String deliveryPoint,@PathVariable("lp")String loadingPoint,@PathVariable("pw")String productWeight,@PathVariable("time")String time,@PathVariable("tov")String typeOfVehicle,@PathVariable("sh")String shipper,@PathVariable("date")String date,@PathVariable("dou")String dateOfUploading){
            // model.addAttribute("postload",postLoad);
-            return postLoadService.addLoad(phoneNo,deliveryPoint,loadingPoint,productWeight,time,typeOfVehicle,shipper,date);
+            return postLoadService.addLoad(phoneNo,deliveryPoint,loadingPoint,productWeight,time,typeOfVehicle,shipper,date,dateOfUploading);
 
 
         }

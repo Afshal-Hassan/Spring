@@ -36,8 +36,8 @@ public interface UserRepository extends JpaRepository<UserData,String> {
     @Query(value = "update UserData set signUpDate =:spdate where email =:e")
     void updateSubscription(@Param("spdate")String date,@Param("e")String email);
 
-
-
+    @Query("select ud.name,ud.email,ud.country,ud.phoneNo from UserData ud where ud.email =:e and ud.userType =:ut")
+    List<String> findShipper(@Param("e")String email,@Param("ut")String userType);
 
 
 }

@@ -16,6 +16,6 @@ public interface PostLoadService {
     String updateLoad(PostLoad postLoad);
 
     String deleteLoad(int postLoadId);
-    String addLoad(String phoneNo, String deliveryPoint, String loadingPoint, String productWeight, String time, String typeOfVehicle, String shipper,String date);
+    String addLoad(String phoneNo, String deliveryPoint, String loadingPoint, String productWeight, String time, String typeOfVehicle, String shipper,String date,String dateOfUploading);
     List<String> findFilterPostLoad(String pointOfDelivery,String pointOfLoading,String date);
 }

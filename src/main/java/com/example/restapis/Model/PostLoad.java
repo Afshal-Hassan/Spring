@@ -22,11 +22,22 @@ public class PostLoad {
     private String phoneNo;
     @Column(name = "date1")
     private String date1;
+    @Column(name = "date_of_uploading")
+    private String dateOfUploading;
 
 
     @ManyToOne
     @JoinColumn(name = "user_data",referencedColumnName = "email")
     private UserData userData;
+
+
+    public String getDateOfUploading() {
+        return dateOfUploading;
+    }
+
+    public void setDateOfUploading(String dateOfUploading) {
+        this.dateOfUploading = dateOfUploading;
+    }
 
     public String getDate1() {
         return date1;

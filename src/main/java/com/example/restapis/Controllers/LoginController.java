@@ -25,7 +25,7 @@ public class LoginController {
       return loginDataService.findLoginData(email);
     }
 
-    @PostMapping("/user")
+    @GetMapping("/user")
     public String checkLogin(Authentication authentication, Principal principal){
         System.out.println(authentication.getName());
         System.out.println(principal.getName());

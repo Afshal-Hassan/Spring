@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,11 +26,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 @Component
+@RestController
 public class LoginAuthController implements AuthenticationEntryPoint {
 
 
 
     @Override
+    @CrossOrigin
+    @PostMapping("/dosigin")
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)throws IOException {
       response.setStatus(HttpStatus.UNAUTHORIZED.value());
 

@@ -56,9 +56,9 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/favicon.ico","/**","/do**").permitAll()
                 .anyRequest()
-                .authenticated().and().exceptionHandling().authenticationEntryPoint(loginAuthController)
+                .authenticated()
                 .and()
-                .formLogin().usernameParameter("email").loginProcessingUrl("/dologin").defaultSuccessUrl("/postload");
+                .formLogin().usernameParameter("email").loginProcessingUrl("/dologin").defaultSuccessUrl("/postload").and().exceptionHandling().authenticationEntryPoint(loginAuthController);
 
     }
 

@@ -60,7 +60,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated().and().exceptionHandling().authenticationEntryPoint(loginAuthController)
                 .and()
-                .formLogin().usernameParameter("email").loginProcessingUrl("dosignin");
+                .formLogin().usernameParameter("email").loginProcessingUrl("/dologin").defaultSuccessUrl("/postload");
 
     }
 

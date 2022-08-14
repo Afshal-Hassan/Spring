@@ -58,7 +58,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/favicon.ico","/**").permitAll()
                 .anyRequest()
-                .authenticated().and().exceptionHandling().authenticationEntryPoint(loginAuthController)
+                .authenticated()
                 .and()
                 .formLogin().usernameParameter("email").loginProcessingUrl("https://spring-boot-deployed.herokuapp.com/dosignin");
 

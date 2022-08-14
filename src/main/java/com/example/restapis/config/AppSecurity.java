@@ -32,6 +32,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
     public void addResourceHandlers(
             ResourceHandlerRegistry registry) {
 
+
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("D:/RestApis/src/main/resources/static/static");
         registry.addResourceHandler("/*.js")
@@ -44,7 +45,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                 .addResourceLocations("D:/RestApis/src/main/resources/static/index.html");
     }
 
-
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -54,11 +55,12 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/favicon.ico","/**","/do**").permitAll()
+                //.antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/favicon.ico","/**","/do**").permitAll()
+                .antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/","/token","/dologin","/postload/**","/**").permitAll()
                 .anyRequest()
                 .authenticated().and().exceptionHandling().authenticationEntryPoint(loginAuthController)
                 .and()
-                .formLogin().usernameParameter("email").loginProcessingUrl("/dologin").defaultSuccessUrl("/postload");
+                .formLogin().usernameParameter("email").loginProcessingUrl("/dologin");
 
     }
 

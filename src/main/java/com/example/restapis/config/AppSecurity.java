@@ -48,13 +48,11 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .requiresChannel().requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure().and()
                // .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
               //  .and()
                 .cors()
                 .and()
                 .csrf().disable()
-
                 .authorizeRequests()
                 .antMatchers("/signup/**","/token","/loginData/**","/resources/**","/static/**","/favicon.ico","/**","/do**").permitAll()
                 .anyRequest()

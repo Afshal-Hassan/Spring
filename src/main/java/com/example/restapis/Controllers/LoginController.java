@@ -3,9 +3,11 @@ import com.example.restapis.Service.CustomUserDetailsService;
 import com.example.restapis.Service.LoginDataServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,12 +25,14 @@ public class LoginController {
       return loginDataService.findLoginData(email);
     }
 
-  //  @PostMapping("/dosignin")
-   // public UserDetails checkLogin(@RequestBody String email){
-     //   return
+    @PostMapping("/user")
+    public String checkLogin(Authentication authentication, Principal principal){
+        System.out.println(authentication.getName());
+        System.out.println(principal.getName());
+        return "";
 
 
-    //}
+    }
 
 
 

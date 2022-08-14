@@ -21,7 +21,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-@Deprecated
 @EnableWebSecurity
 public class AppSecurity extends WebSecurityConfigurerAdapter {
 
@@ -61,7 +60,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated().and().exceptionHandling().authenticationEntryPoint(loginAuthController)
                 .and()
-                .formLogin().usernameParameter("email").loginProcessingUrl("https://spring-boot-deployed.herokuapp.com/dosignin");
+                .formLogin().usernameParameter("email").loginProcessingUrl("dosignin");
 
     }
 

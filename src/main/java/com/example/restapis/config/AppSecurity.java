@@ -69,7 +69,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
            public void addCorsMappings(CorsRegistry registry) {
-               registry.addMapping("/**").allowedOrigins("http://localhost:3000").allowedMethods("GET","POST","DELETE","PUT").allowCredentials(true);
+               registry.addMapping("/**").allowedOrigins("https://react-app-first-version.herokuapp.com").allowedMethods("GET","POST","DELETE","PUT").allowCredentials(true);
             }
        };
     }

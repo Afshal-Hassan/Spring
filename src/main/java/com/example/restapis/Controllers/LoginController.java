@@ -16,24 +16,12 @@ public class LoginController {
 
     @Autowired
     LoginDataServiceImpl loginDataService;
-    @Autowired
-    CustomUserDetailsService customUserDetailsService;
 
     @CrossOrigin
     @GetMapping("/loginData/{email}")
     public List<String> loginData(@PathVariable("email")String email){
       return loginDataService.findLoginData(email);
     }
-
-    @GetMapping("/user")
-    public String checkLogin(Authentication authentication, Principal principal){
-        System.out.println(authentication.getName());
-        System.out.println(principal.getName());
-        return "";
-
-
-    }
-
 
 
 

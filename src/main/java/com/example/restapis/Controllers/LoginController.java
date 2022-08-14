@@ -23,12 +23,12 @@ public class LoginController {
       return loginDataService.findLoginData(email);
     }
 
-    @PostMapping("/dosignin")
-    public UserDetails checkLogin(@RequestBody String email){
-        return  customUserDetailsService.loadUserByUsername(email);
+  //  @PostMapping("/dosignin")
+   // public UserDetails checkLogin(@RequestBody String email){
+     //   return
 
 
-    }
+    //}
 
 
 

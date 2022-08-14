@@ -33,7 +33,7 @@ public class LoginAuthController implements AuthenticationEntryPoint {
 
     @Override
     @CrossOrigin
-    @PostMapping("/dosigin")
+    @PostMapping("/dosignin")
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)throws IOException {
       response.setStatus(HttpStatus.UNAUTHORIZED.value());
 

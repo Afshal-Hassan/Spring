@@ -26,14 +26,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 @Component
-@RestController
 public class LoginAuthController implements AuthenticationEntryPoint {
 
 
-
-    @Override
     @CrossOrigin
-    @PostMapping("/dosignin")
+    @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)throws IOException {
       response.setStatus(HttpStatus.UNAUTHORIZED.value());
 
